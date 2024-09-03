@@ -157,10 +157,10 @@ int main(int argc, char **argv)
         struct sched_param param_logger;
         pthread_attr_t attrs[thread_number];
         pthread_t threads[thread_number];
-        param.sched_priority = 42 + 50;
-        param_logger.sched_priority = 41 + 50;
-        param_controller.sched_priority = 45 + 50;
-        param_st.sched_priority = 45 + 50;
+        param.sched_priority = 42 + 20;
+        param_logger.sched_priority = 30 + 20;
+        param_controller.sched_priority = 45 + 20;
+        param_st.sched_priority = 45 + 20;
         cpu_set_t cpusets[thread_number];
 
         if (dc_.simMode)
