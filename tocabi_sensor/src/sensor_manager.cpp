@@ -68,6 +68,7 @@ void *SensorManager::SensorThread(void)
     {
         std::cout << "imu connection errer " << err.what() << std::endl;
         imu_ok = false;
+        shm_->shutdown = true;
     }
 
     sensoray826_dev ft = sensoray826_dev(1);
