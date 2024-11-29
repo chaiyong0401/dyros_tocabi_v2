@@ -185,13 +185,22 @@ public:
     std_msgs::Float32MultiArray hand_ft_org_msg_;
 
     ros::Publisher hand_state_pub;
+    // ros::Publisher left_hand_state_pub;
     sensor_msgs::JointState hand_state_msgs;
+    // sensor_msgs::JointState left_hand_state_msgs;
     const std::string hand_joint_name[HAND_DOF] = {
         "aa2" , "mcp2", "pip2", "dip2",
         "aa1" , "mcp1", "pip1", "dip1",
         "aa3" , "mcp3", "pip3", "dip3",
         "aa4" , "mcp4", "pip4", "dip4",
         "act1", "act2", "act3", "act4"};
+
+    const std::string left_hand_joint_name[HAND_DOF] = {
+        "left_aa2" , "left_mcp2", "left_pip2", "left_dip2",
+        "left_aa1" , "left_mcp1", "left_pip1", "left_dip1",
+        "left_aa3" , "left_mcp3", "left_pip3", "left_dip3",
+        "left_aa4" , "left_mcp4", "left_pip4", "left_dip4",
+        "left_act1", "left_act2", "left_act3", "left_act4"};
     
     void handrcurrentCallback(const std_msgs::Int16MultiArrayConstPtr &msg);
     void handlcurrentCallback(const std_msgs::Int16MultiArrayConstPtr &msg);

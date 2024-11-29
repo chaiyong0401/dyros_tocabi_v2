@@ -6,7 +6,9 @@
     <arg name="node_start_delay" default="0.2" />  
     <arg name="mujoco" default="true" />
     <arg name="debug" default="true" />
-
+    <!-- For avatar without walking -->
+    <!-- <arg name="avatar_mode" default="false" />  
+    <arg name="disablelower" default="false"/> -->
 
     <node name="tocabi_controller_shm_reset" pkg="tocabi_controller" type="shm_reset" output="screen"/>
     
@@ -31,6 +33,9 @@
     <rosparam command="load" file="$(find tocabi_description)/setting/setting_simulation_positionPDgain.yaml" ns="/tocabi_controller" />
     <rosparam command="load" file="$(find tocabi_description)/setting/setting_simulation_parameters.yaml" ns="/tocabi_controller" />
     <param name="tocabi_controller/sim_mode" value="true" />
+    <!-- For avatar without walking -->
+    <!-- <param name="tocabi_controller/disablelower" value="$(arg disablelower)"/>
+    <param name="tocabi_controller/avatar_mode" value="$(arg avatar_mode)"/> -->
 
     <group if="$(arg controller)">
         <node name="tocabi_controller" pkg="tocabi_controller" type="tocabi_controller" output="screen" required="true" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@'"/>

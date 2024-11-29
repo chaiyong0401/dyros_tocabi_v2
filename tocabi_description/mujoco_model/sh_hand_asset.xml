@@ -25,5 +25,6 @@
     <mesh name="act2_1"    file="sh_hand/act2_1.stl" scale="0.001 0.001 0.001" />
     <mesh name="act3_1"    file="sh_hand/act3_1.stl" scale="0.001 0.001 0.001" />
     <mesh name="act4_1"    file="sh_hand/act4_1.stl" scale="0.001 0.001 0.001" />
+    <mesh name="left_base_link" file="sh_hand/left_base_link.stl" scale="0.001 0.001 0.001" />
 
 </mujoco>

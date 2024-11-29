@@ -36,6 +36,9 @@
         <mesh name="head" file="head.STL" scale="0.001 0.001 0.001"/>
         <mesh name="hand" file="wrist2joint.STL" scale="0.001 0.001 0.001"/>
         <mesh name="Foot_Link" file="Foot_Link.STL"/>
+        <mesh name="mustard" file="objects/mustard.stl"/>
+        <mesh name="plastic_cup" file="objects/plastic_cup4.STL"/>
+        <mesh name="base" file ="objects/Base_6_small.stl"/>
 
         <!-- for hand -->
         <include file="sh_hand_asset.xml"/>
@@ -55,30 +58,48 @@
         <light directional="true" diffuse=".8 .8 .8" pos="0 0 10" dir="0 0 -10"/>
         <light directional="true" diffuse=".5 .5 .5" pos="10 0 0" dir="-10 0 0"/>
 
-        <body name="table_top_body">
-            <geom size="0.3 1.0 0.05" pos="0.6 0 0.85"  type="box"/>
+        <!-- init position 시작 -->
+        <!-- <body name="table_top_body">
+            <geom size="0.3 1.0 0.05" pos="0.7 0 0.85"  type="box" rgba = "0.7 0.7 0.7 1" contype="0" conaffinity ="0"/>
             <body name="leg1">
-                <geom size="0.05 0.4" pos="0.4 -0.6 0.4" type="cylinder"/>
+                <geom size="0.05 0.4" pos="0.5 -0.6 0.4" type="cylinder" rgba = "0.7 0.7 0.7 1" contype="0" conaffinity ="0"/>
             </body>
             <body name="leg2">
-                <geom size="0.05 0.4" pos="0.8 -0.6 0.4" type="cylinder"/>
+                <geom size="0.05 0.4" pos="0.9 -0.6 0.4" type="cylinder" rgba = "0.7 0.7 0.7 1" contype="0" conaffinity ="0"/>
             </body>
             <body name="leg3">
-                <geom size="0.05 0.4" pos="0.4 0.6 0.4" type="cylinder"/>
+                <geom size="0.05 0.4" pos="0.5 0.6 0.4" type="cylinder" rgba = "0.7 0.7 0.7 1" contype="0" conaffinity ="0"/>
             </body>
             <body name="leg4">
-                <geom size="0.05 0.4" pos="0.8 0.6 0.4" type="cylinder"/>
+                <geom size="0.05 0.4" pos="0.9 0.6 0.4" type="cylinder" rgba = "0.7 0.7 0.7 1" contype="0" conaffinity ="0"/>
+            </body>
+        </body> -->
+
+        <!-- Ready position 시작 -->
+        <body name="table_top_body">
+            <geom size="0.3 1.0 0.05" pos="0.7 0 0.85"  type="box" rgba = "0.7 0.7 0.7 1" contype="2" conaffinity="2"/>
+            <body name="leg1">
+                <geom size="0.05 0.4" pos="0.5 -0.6 0.4" type="cylinder" rgba = "0.7 0.7 0.7 1"/>
+            </body>
+            <body name="leg2">
+                <geom size="0.05 0.4" pos="0.9 -0.6 0.4" type="cylinder" rgba = "0.7 0.7 0.7 1"/>
+            </body>
+            <body name="leg3">
+                <geom size="0.05 0.4" pos="0.5 0.6 0.4" type="cylinder" rgba = "0.7 0.7 0.7 1"/>
+            </body>
+            <body name="leg4">
+                <geom size="0.05 0.4" pos="0.9 0.6 0.4" type="cylinder" rgba = "0.7 0.7 0.7 1"/>
             </body>
         </body>
-
-    
-        <body name="cup">
-            <geom size="0.05 0.1" pos="0.55 0.05 1.01" type="cylinder" rgba="0 0 1 1"/>
-        </body>
         
-        <body name="cube">
-            <geom size="0.05 0.05 0.1" pos="0.75 -0.1 1.01" type="box" rgba="1 0 0 1"/>
-        </body>
+        <!-- <body name="leg_example">
+            <geom size="0.04 0.04 1.09" pos="0.7 -0.13 0" type="box" rgba="1 0 0 1"/>  
+        </body> -->
+    
+        
+        <!-- <body name="cube">
+            <geom size="0.05 0.05 0.1" pos="0.55 -0.3 1.01" type="box" rgba="1 0 0 1"/>
+        </body> -->
 
         <!--<body name="block">
             <geom size="0.16 0.136 0.1475" pos="0 5.0 0" type="box" group="1"/>
@@ -288,6 +309,12 @@
                                                         <geom size="0.03 0.03 0.01" pos="0 0 -0.025" type="box" class="cls"/>
                                                         <geom size="0.03 0.03 0.01" pos="0 0 -0.025" type="box" class="viz" rgba="0.20313 0.20313 0.20313 1" />
                                                         <site class="FTsensor" name="LH_FT" pos="0 0 -0.035"/>
+                                                        <!-- for sh hand -->
+                                                        <body name="L_Wrist_2_Hand_Virtual_Link" pos="0 0 -0.035" quat="0 0 0.707 -0.707">
+                                                            <!-- <include file="sh_left_hand.xml"/> -->
+                                                            <!-- <include file="left3.xml"/> -->
+                                                            <include file="left2.xml"/>
+                                                        </body>
                                                     </body>
                                                 </body>
                                             </body>
@@ -371,7 +398,58 @@
                 </body>
             </body>
         </body>
+        
 
+        <!-- <body name="cup">
+            <geom name="box_geom" size="0.04 0.05 0.0025" pos="0.69 -0.12 1.05" type="box" rgba="0.7 0.7 0.7 0"/>  
+            <geom name ="cup_geom" size="0.03 0.2" pos="0.69 -0.12 1.25" type="cylinder" rgba="0 0 1 0"/> 
+            <joint name="cup_joint" type="free"/>
+        </body> -->
+
+        <!-- <body name="cup">
+            <geom size="0.04 0.05 0.0025" type="box" pos="0.65 -0.2 0.9025" rgba="1 1 1 0"/>
+            <geom type="cylinder" size="0.05 0.1" pos="0.65 -0.1 0.95" rgba="1 0 0 0.5" contype="1" conaffinity="1"/>
+            <geom type="mesh" mesh="mustard" pos="0.65 -0.1 0.985" euler="0 0 1.5708" rgba="1 1 0 1" contype="0" conaffinity="0"/>
+            <joint name="obj_vjoint_0" type="free"/>
+        </body> -->
+
+        <!-- geom index = 169 -->
+        <body name="cup" pos="0.72 -0.09 0.6">
+            <geom size="0.04 0.05 0.0025" type="box" pos="0.72 -0.09 0.9025" rgba="1 1 1 0" contype="2" conaffinity="2"/>
+            <geom type="cylinder" size="0.03 0.06" pos="0.72 -0.09 0.97" rgba="0 0 1 0.5" class="cls"/>
+            <geom type="mesh" mesh="plastic_cup" pos="0.68 -0.05 0.91" euler="1.5708 0 0" rgba="1 0 0 1" contype="0" conaffinity="0"/>
+            <joint name="obj_vjoint_1" type="free" stiffness="1" damping="2"/>
+        </body>
+
+        <!-- geom index = 171 -->
+        <body name="plastic_cup">   
+            <geom size="0.04 0.05 0.0025" type="box" pos="0.6 0.13 0.9025" rgba="1 1 1 0" contype="2" conaffinity="2"/>
+            <geom type="cylinder" size="0.03 0.06" pos="0.6 0.13 0.97" rgba="0 0 1 0" contype="1" conaffinity="1"/>
+            <!-- <geom type="mesh" mesh="plastic_cup" pos="0.56 0.17 0.92" euler="1.5708 0 0" rgba="0 0 1 0.1" contype="0" conaffinity="0"/> -->
+            <geom type="mesh" mesh="plastic_cup" pos="0.56 0.17 0.91" euler="1.5708 0 0" rgba="0 0 1 1" contype="0" conaffinity="0"/>
+            <joint name="obj_vjoint_2" type="free" stiffness="20" damping="2"/>
+        </body>
+
+
+        <body name="Base" pos="0.7 -0.6 0.9525">
+            <!-- <geom type="mesh" mesh="base" pos="0.68 -0.5 0.91" euler="0 0 0" rgba="1 0 0 0.1" class="viz"/>
+            <geom type="mesh" mesh="base" pos="0.68 -0.5 0.91" euler="0 0 0" rgba="1 1 1 1" class="cls"/> -->
+            <!-- <geom size="0.2 0.1 0.0025" type="box" pos="0.7 -0.5 0.9025" rgba="1 0 0 0.1" /> -->
+            <geom size="0.01 0.16 0.0525" type="box" pos="-0.205 -0.005 0" rgba="1 0 0 1" />
+            <geom size="0.01 0.16 0.0525" type="box" pos="0.205 0.005 0" rgba="1 0 0 1" />
+            <geom size="0.21 0.01 0.0525" type="box" pos="0.005 -0.155 0" rgba="1 0 0 1" />
+            <geom size="0.21 0.01 0.0525" type="box" pos="-0.005 0.155 0" rgba="1 0 0 1" />
+        </body>
+
+        <body name="Base2" pos="0.7 0.6 0.9525">
+            <!-- <geom type="mesh" mesh="base" pos="0.68 0.5 0.91" euler="0 0 0" rgba="0 0 1 0.1" class="viz"/> -->
+            <!-- <geom type="mesh" mesh="base" pos="0.68 -0.5 0.91" euler="0 0 0" rgba="1 1 1 1" class="cls"/> -->
+            <!-- <geom size="0.2 0.1 0.0025" type="box" pos="0.7 0.5 0.9025" rgba="0 0 1 0.1" /> -->
+            <geom size="0.01 0.16 0.0525" type="box" pos="-0.205 -0.005 0" rgba="0 0 1 1" />
+            <geom size="0.01 0.16 0.0525" type="box" pos="0.205 0.005 0" rgba="0 0 1 1" />
+            <geom size="0.21 0.01 0.0525" type="box" pos="0.005 -0.155 0" rgba="0 0 1 1" />
+            <geom size="0.21 0.01 0.0525" type="box" pos="-0.005 0.155 0" rgba="0 0 1 1" />
+        </body>
     </worldbody>
     <actuator>
         <motor name="L_HipYaw_Motor" joint="L_HipYaw_Joint" ctrlrange="-333 333"/>
@@ -414,6 +492,7 @@
         <motor name="R_Wrist2_Motor" joint="R_Wrist2_Joint" ctrlrange="-10 10"/>
 
         <!-- hand -->
+        <include file="sh_hand_left_actuator.xml"/>
         <include file="sh_hand_actuator.xml"/>
     </actuator>
 
@@ -471,7 +550,32 @@
                                 0 0 0 0 0
                                 0 0 0 0 0
                                 0 0 0 0 0
-                                "/> -->
+                                0 0 0 0 0
+                                0 0 0 0 0
+                                0 0 0 0 0
+                                0 0 0 0 0
+                                0 0 0 1 0 0 0
+                                0 0 0 1 0 0 0"/> -->
+
+        <!-- Ready Pose keyframe-->
+        <key name="front" time="0" qpos ="0 0 0.92983 1 0 0 0
+                                0.0 0.0 -0.24 0.6 -0.36 0.0 
+								0.0 0.0 -0.24 0.6 -0.36 0.0
+								0.0 0.0 0.0
+								0.0 -0.3 1.571 -1.2 -1.571 1.5 0.4 -0.2
+                                
+                                0 0 0 0 0
+                                0 0 0 0 0
+                                0 0 0 0 0
+                                0 0 0 0 0
+                                0.0 0.3
+							    0.0 0.3 -1.571 1.2 1.571 -1.5 -0.4 0.2
+                                0 0 0 0 0
+                                0 0 0 0 0
+                                0 0 0 0 0
+                                0 0 0 0 0
+                                0 0 0 1 0 0 0
+                                0 0 0 1 0 0 0"/>
 
         <!-- <key name="side" time="0" qpos ="0  0  0.92683  0.8660254  0  0  0.5 
 								0.0   0.1  -0.45  1.0  -0.55 -0.1 

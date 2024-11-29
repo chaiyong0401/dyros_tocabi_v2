@@ -48,7 +48,8 @@ void *TocabiController::Thread1() // Thread1, running with 2Khz.
     // cout << "waiting first calc.." << endl;
     while (!rd_.firstCalc)
     {
-        std::this_thread::sleep_for(std::chrono::microseconds(1));
+        // std::this_thread::sleep_for(std::chrono::microseconds(1));
+         std::this_thread::sleep_for(std::chrono::microseconds(10));
         if (dc_.tc_shm_->shutdown)
         {
             break;
@@ -766,6 +767,8 @@ void *TocabiController::Thread1() // Thread1, running with 2Khz.
                     try
                     {
                     ac_.computeSlow();
+                    // std::cout << "computeSlow()" << std::endl;
+                    // sleep(5);
                     }
                     catch (const std::exception &e)
                     {
@@ -927,6 +930,7 @@ void *TocabiController::Thread2()
                             num3 = num3 + 1;
                             ac_.computeFast();
                             num4 = num4 + 1;
+                            // std::cout << "computeFast()" << std::endl;
                         }
                         catch (const std::exception &e)
                         {

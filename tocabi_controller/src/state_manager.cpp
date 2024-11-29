@@ -76,15 +76,22 @@ StateManager::StateManager(DataContainer &dc_global) : dc_(dc_global), rd_gl_(dc
         joint_state_msg_.name[i] = JOINT_NAME[i];
 
     hand_state_pub = dc_.nh.advertise<sensor_msgs::JointState>("/tocabi/handstates", 1);
+    // left_hand_state_pub = dc_.nh.advertise<sensor_msgs::JointState>("/tocabi/left_handstates", 1);
 
     hand_state_msgs.name.resize(HAND_DOF);
     hand_state_msgs.position.resize(HAND_DOF);
     hand_state_msgs.velocity.resize(HAND_DOF);
     hand_state_msgs.effort.resize(HAND_DOF);
 
-    for(int i = 0; i < HAND_DOF; i++)
-        hand_state_msgs.name[i] = hand_joint_name[i];
+    // left_hand_state_msgs.name.resize(HAND_DOF);
+    // left_hand_state_msgs.position.resize(HAND_DOF);
+    // left_hand_state_msgs.velocity.resize(HAND_DOF);
+    // left_hand_state_msgs.effort.resize(HAND_DOF);
 
+    for(int i = 0; i < HAND_DOF; i++)
+        {hand_state_msgs.name[i] = hand_joint_name[i];
+        // left_hand_state_msgs.name[i] = left_hand_joint_name[i];
+        }
     gui_command_sub_ = dc_.nh.subscribe("/tocabi/command", 1, &StateManager::GuiCommandCallback, this);
     gui_state_pub_ = dc_.nh.advertise<std_msgs::Int8MultiArray>("/tocabi/systemstate", 1);
     point_pub_ = dc_.nh.advertise<geometry_msgs::PolygonStamped>("/tocabi/point", 1);
@@ -2327,12 +2334,20 @@ void StateManager::PublishData()
     joint_state_pub_.publish(joint_state_msg_);
 
     hand_state_msgs.header.stamp = ros::Time::now();
+    // left_hand_state_msgs.header.stamp = ros::Time::now();
     for(int i = 0; i < HAND_DOF; i++){
-        hand_state_msgs.position[i] = dc_.tc_shm_->hand_pos[i];
-        hand_state_msgs.velocity[i] = dc_.tc_shm_->hand_vel[i];
-        hand_state_msgs.effort[i] = dc_.tc_shm_->hand_acc[i];
+        // hand_state_msgs.position[i] = dc_.tc_shm_->hand_pos[i];
+        // hand_state_msgs.velocity[i] = dc_.tc_shm_->hand_vel[i];
+        // hand_state_msgs.effort[i] = dc_.tc_shm_->hand_acc[i];
+
+
+        // left
+        hand_state_msgs.position[i] = dc_.tc_shm_->left_hand_pos[i];
+        hand_state_msgs.velocity[i] = dc_.tc_shm_->left_hand_vel[i];
+        hand_state_msgs.effort[i] = dc_.tc_shm_->left_hand_acc[i];
     }
     hand_state_pub.publish(hand_state_msgs);
+    // left_hand_state_pub.publish(left_hand_state_msgs);
 
     point_pub_msg_.header.stamp = ros::Time::now();
 

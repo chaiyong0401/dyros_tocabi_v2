@@ -103,7 +103,7 @@ int main(int argc, char **argv)
     TocabiController tc_(stm);
 
     int shm_id_;
-
+    std::cout<< "init_shm in tocabi_controller main.cpp" <<std::endl;
     init_shm(shm_msg_key, shm_id_, &dc_.tc_shm_);
 
     prog_shutdown = &dc_.tc_shm_->shutdown;

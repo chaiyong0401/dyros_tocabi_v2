@@ -1,0 +1,26 @@
+<mujoco model="sh_hand_left_actuator">
+    <position name="left_aa2_Motor"  joint="left_aa2"  ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_mcp2_Motor" joint="left_mcp2" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_pip2_Motor" joint="left_pip2" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_dip2_Motor" joint="left_dip2" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+
+    <position name="left_aa1_Motor"  joint="left_aa1"  ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_mcp1_Motor" joint="left_mcp1" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_pip1_Motor" joint="left_pip1" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_dip1_Motor" joint="left_dip1" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+
+    <position name="left_aa3_Motor"  joint="left_aa3"  ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_mcp3_Motor" joint="left_mcp3" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_pip3_Motor" joint="left_pip3" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_dip3_Motor" joint="left_dip3" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    
+    <position name="left_aa4_Motor"  joint="left_aa4"  ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_mcp4_Motor" joint="left_mcp4" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_pip4_Motor" joint="left_pip4" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_dip4_Motor" joint="left_dip4" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+
+    <position name="left_act2_Motor" joint="left_act2" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_act1_Motor" joint="left_act1" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_act3_Motor" joint="left_act3" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+    <position name="left_act4_Motor" joint="left_act4" ctrllimited="true" forcelimited="false" forcerange="-0.01 0.01" ctrlrange="-3 3" kp="1.0"/>
+</mujoco>
